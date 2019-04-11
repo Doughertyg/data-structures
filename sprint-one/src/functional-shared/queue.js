@@ -24,11 +24,7 @@ var Queue = function() {
 
   // someInstance.tail = function() {
   // 	return tailIndex;
-  // }  
-
-  someInstance.size = function() {
-    return this.sizeCount;
-  };
+  // }    
 
   // someInstance.items = function() {
   //   return storage;
@@ -40,6 +36,9 @@ var Queue = function() {
 
 
 var queueMethods = {
+	size : function() {
+    return this.sizeCount;
+  	},
 	enqueue : function(value) {
     			this.storage[this.tail] = value;
     			this.tail++;
