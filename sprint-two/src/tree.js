@@ -3,18 +3,40 @@ var Tree = function(value) {
   newTree.value = value;
 
   // your code here
-  newTree.children = null;  // fix me
+  newTree.children = [];  // fix me
 
+  _.extend(newTree, treeMethods);
   return newTree;
 };
 
-var treeMethods = {};
+var treeMethods = {
 
-treeMethods.addChild = function(value) {
-};
+	addChild : function(value) {
+		var createTree = Tree(value);
+		this.children.push(createTree);
+	},
 
-treeMethods.contains = function(target) {
-};
+	contains : function(target) {
+		if(this.value === target) {
+			return true;
+		}
+		else if (this.children !== []) {
+			for (var i = 0; i < this.children.length; i++) {
+				var current = this.children[i];
+
+				if (current.contains(target) === true) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+		else {
+			return false;
+		}
+
+	}
+}
 
 
 
