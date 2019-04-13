@@ -2,7 +2,7 @@ describe('binarySearchTree', function() {
   var binarySearchTree;
 
   beforeEach(function() {
-    binarySearchTree = BinarySearchTree(5);
+    binarySearchTree = new BinarySearchTree(5); //sorry I added the new... didn't really feel like writing my code in prototypal format, prefer pseudoclassical
   });
 
   it('should have methods named "insert", "contains", and "depthFirstLog', function() {
