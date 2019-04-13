@@ -1,18 +1,26 @@
 var Set = function() {
   var set = Object.create(setPrototype);
-  set._storage = null; // fix me
+  set._storage = {}; // fix me
   return set;
 };
 
-var setPrototype = {};
+var setPrototype = {
 
-setPrototype.add = function(item) {
-};
+  add: function(item) {
+    this._storage[item] = item;
+  },
 
-setPrototype.contains = function(item) {
-};
+  contains: function(item) {
+    return this._storage.hasOwnProperty(item);
+  },
 
-setPrototype.remove = function(item) {
+  remove: function(item) {
+    if (this.contains(item)) {
+      delete this._storage[item];
+    } else {
+      console.log('item not in set!'); //I haven't done this for any others but should
+    }
+  },
 };
 
 /*
